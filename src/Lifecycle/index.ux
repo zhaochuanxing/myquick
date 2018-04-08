@@ -1,0 +1,43 @@
+<template>
+	<div class="tutorial-page">
+		<a href="/Home">open home page</a>
+		<div class="tutorial-panel">
+	    	    <text for="lcList">{{$idx}}:{{$item}}</text>
+		</div>
+	</div>
+</template>
+
+<style lang="less">
+.turtorial-page{
+	flex-direction:column;
+	padding:20px 10px;
+}
+
+a{
+	text-decoration: underline;
+	text-align: center;
+}
+text{
+	font-size: 48px;
+	font-weight: bold;
+}
+.tutorial-panel{
+	flex-direction: column;
+	flex-grow: 1;
+}
+</style>
+
+<script >
+export default{
+	data:{
+		//生命周期的文本列表
+		//相当于是一个成员变量存放数据
+		lcList:[]
+	},
+	onInit(){
+		this.$page.setTitleBar({text:'生命周期历程'})
+		this.lcList.push("onInit")
+	}
+}
+	
+</script>

@@ -25,6 +25,9 @@
       "DemoDetail": {
         "component": "index"
       },
+      "Lifecycle":{
+          "component":"index"
+      },
       "About": {
         "component": "index"
       }
@@ -41,6 +44,9 @@
       },
       "DemoDetail": {
         "titleBarText": "详情页"
+      },
+      "Lifecycle":{
+        "menu":true
       },
       "About": {
         "menu": false
