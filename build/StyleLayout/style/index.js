@@ -43,13 +43,14 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $app_template$ = __webpack_require__(7)
-	var $app_style$ = __webpack_require__(8)
-	var $app_script$ = __webpack_require__(9)
+	var $app_template$ = __webpack_require__(32)
+	var $app_style$ = __webpack_require__(33)
+	var $app_script$ = __webpack_require__(34)
 	
 	$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){
 	     $app_script$($app_module$, $app_exports$, $app_require$)
@@ -64,74 +65,120 @@
 
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+
+/***/ 32:
 /***/ function(module, exports) {
 
 	module.exports = {
 	  "type": "div",
 	  "attr": {},
 	  "classList": [
-	    "demo-page"
+	    "tutorial-page"
 	  ],
 	  "children": [
 	    {
 	      "type": "text",
 	      "attr": {
-	        "value": function () {return '欢迎打开' + (this.title)}
+	        "value": " 内联样式 "
+	      },
+	      "style": {
+	        "color": "#FF0000"
+	      }
+	    },
+	    {
+	      "type": "text",
+	      "attr": {
+	        "id": "title",
+	        "value": "ID选择器"
+	      },
+	      "id": "title"
+	    },
+	    {
+	      "type": "text",
+	      "attr": {
+	        "value": "class选择器"
 	      },
 	      "classList": [
 	        "title"
 	      ]
 	    },
 	    {
-	      "type": "input",
+	      "type": "text",
 	      "attr": {
-	        "type": "button",
-	        "value": "跳转到详情页"
-	      },
-	      "classList": [
-	        "btn"
-	      ],
-	      "events": {
-	        "click": "routeDetail"
+	        "value": "tag选择器"
 	      }
 	    }
 	  ]
 	}
 
 /***/ },
-/* 8 */
+
+/***/ 33:
 /***/ function(module, exports) {
 
 	module.exports = {
-	  ".demo-page": {
-	    "flexDirection": "column",
-	    "justifyContent": "center",
-	    "alignItems": "center"
+	  ".tutorial-page": {
+	    "flexDirection": "column"
+	  },
+	  "text": {
+	    "color": "#0000FF"
 	  },
 	  ".title": {
-	    "fontSize": "40px",
-	    "textAlign": "center"
+	    "color": "#00FF00",
+	    "fontWeight": "bold"
 	  },
-	  ".btn": {
-	    "width": "550px",
-	    "height": "86px",
-	    "marginTop": "75px",
-	    "borderRadius": "43px",
-	    "backgroundColor": "#09ba07",
-	    "fontSize": "30px",
-	    "color": "#ffffff"
+	  "#title": {
+	    "color": "#00A000",
+	    "fontWeight": "bold"
+	  },
+	  ".tutorial-page text": {
+	    "fontSize": "42px",
+	    "_meta": {
+	      "ruleDef": [
+	        {
+	          "t": "a",
+	          "n": "class",
+	          "i": false,
+	          "a": "element",
+	          "v": "tutorial-page"
+	        },
+	        {
+	          "t": "d"
+	        },
+	        {
+	          "t": "t",
+	          "n": "text"
+	        }
+	      ]
+	    }
+	  },
+	  ".tutorial-page > text": {
+	    "textDecoration": "underline",
+	    "fontSize": "62px",
+	    "_meta": {
+	      "ruleDef": [
+	        {
+	          "t": "a",
+	          "n": "class",
+	          "i": false,
+	          "a": "element",
+	          "v": "tutorial-page"
+	        },
+	        {
+	          "t": "child"
+	        },
+	        {
+	          "t": "t",
+	          "n": "text"
+	        }
+	      ]
+	    }
 	  }
 	}
 
 /***/ },
-/* 9 */
+
+/***/ 34:
 /***/ function(module, exports) {
 
 	module.exports = function(module, exports, $app_require$){'use strict';
@@ -142,20 +189,9 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _system = $app_require$('@app-module/system.router');
-	
-	var _system2 = _interopRequireDefault(_system);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
 	exports.default = {
-	  data: {
-	    title: '示例页面'
-	  },
-	  routeDetail: function routeDetail() {
-	    _system2.default.push({
-	      uri: '/ComponentTabs'
-	    });
+	  onInit: function onInit() {
+	    this.$page.setTitleBar({ text: '设置样式' });
 	  }
 	};
 	
@@ -184,7 +220,8 @@
 	}}
 
 /***/ }
-/******/ ]);
+
+/******/ });
   };
   if (typeof window === "undefined") {
     return createPageHandler();

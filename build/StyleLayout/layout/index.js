@@ -43,13 +43,14 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $app_template$ = __webpack_require__(7)
-	var $app_style$ = __webpack_require__(8)
-	var $app_script$ = __webpack_require__(9)
+	var $app_template$ = __webpack_require__(26)
+	var $app_style$ = __webpack_require__(27)
+	var $app_script$ = __webpack_require__(28)
 	
 	$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){
 	     $app_script$($app_module$, $app_exports$, $app_require$)
@@ -64,74 +65,97 @@
 
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+
+/***/ 26:
 /***/ function(module, exports) {
 
 	module.exports = {
 	  "type": "div",
 	  "attr": {},
 	  "classList": [
-	    "demo-page"
+	    "tutorial-page"
 	  ],
 	  "children": [
 	    {
-	      "type": "text",
-	      "attr": {
-	        "value": function () {return '欢迎打开' + (this.title)}
-	      },
+	      "type": "div",
+	      "attr": {},
 	      "classList": [
-	        "title"
+	        "item"
+	      ],
+	      "children": [
+	        {
+	          "type": "text",
+	          "attr": {
+	            "value": "item1"
+	          }
+	        }
 	      ]
 	    },
 	    {
-	      "type": "input",
-	      "attr": {
-	        "type": "button",
-	        "value": "跳转到详情页"
-	      },
+	      "type": "div",
+	      "attr": {},
 	      "classList": [
-	        "btn"
+	        "item"
 	      ],
-	      "events": {
-	        "click": "routeDetail"
-	      }
+	      "children": [
+	        {
+	          "type": "text",
+	          "attr": {
+	            "value": "item2"
+	          }
+	        }
+	      ]
 	    }
 	  ]
 	}
 
 /***/ },
-/* 8 */
+
+/***/ 27:
 /***/ function(module, exports) {
 
 	module.exports = {
-	  ".demo-page": {
-	    "flexDirection": "column",
+	  ".tutorial-page": {
+	    "alignItems": "center",
+	    "flexDirection": "row"
+	  },
+	  ".tutorial-page>.item": {
+	    "flexShrink": 1,
 	    "justifyContent": "center",
-	    "alignItems": "center"
-	  },
-	  ".title": {
-	    "fontSize": "40px",
-	    "textAlign": "center"
-	  },
-	  ".btn": {
-	    "width": "550px",
-	    "height": "86px",
-	    "marginTop": "75px",
-	    "borderRadius": "43px",
-	    "backgroundColor": "#09ba07",
-	    "fontSize": "30px",
-	    "color": "#ffffff"
+	    "width": "500px",
+	    "height": "200px",
+	    "marginTop": "40px",
+	    "marginRight": "40px",
+	    "marginBottom": "40px",
+	    "marginLeft": "40px",
+	    "backgroundColor": "#FFFF00",
+	    "_meta": {
+	      "ruleDef": [
+	        {
+	          "t": "a",
+	          "n": "class",
+	          "i": false,
+	          "a": "element",
+	          "v": "tutorial-page"
+	        },
+	        {
+	          "t": "child"
+	        },
+	        {
+	          "t": "a",
+	          "n": "class",
+	          "i": false,
+	          "a": "element",
+	          "v": "item"
+	        }
+	      ]
+	    }
 	  }
 	}
 
 /***/ },
-/* 9 */
+
+/***/ 28:
 /***/ function(module, exports) {
 
 	module.exports = function(module, exports, $app_require$){'use strict';
@@ -142,20 +166,9 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _system = $app_require$('@app-module/system.router');
-	
-	var _system2 = _interopRequireDefault(_system);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
 	exports.default = {
-	  data: {
-	    title: '示例页面'
-	  },
-	  routeDetail: function routeDetail() {
-	    _system2.default.push({
-	      uri: '/ComponentTabs'
-	    });
+	  onInit: function onInit() {
+	    this.$page.setTitleBar({ text: 'Flex布局实例' });
 	  }
 	};
 	
@@ -184,7 +197,8 @@
 	}}
 
 /***/ }
-/******/ ]);
+
+/******/ });
   };
   if (typeof window === "undefined") {
     return createPageHandler();

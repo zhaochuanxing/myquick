@@ -48,9 +48,9 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $app_template$ = __webpack_require__(10)
-	var $app_style$ = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!../../node_modules/hap-tools/lib/json-loader.js!../../node_modules/hap-tools/lib/style-loader.js?index=0&type=styles!less-loader!../../node_modules/hap-tools/lib/fragment-loader.js?index=0&type=styles!./index.ux\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
-	var $app_script$ = __webpack_require__(11)
+	var $app_template$ = __webpack_require__(20)
+	var $app_style$ = __webpack_require__(21)
+	var $app_script$ = __webpack_require__(22)
 	
 	$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){
 	     $app_script$($app_module$, $app_exports$, $app_require$)
@@ -66,7 +66,7 @@
 
 /***/ },
 
-/***/ 10:
+/***/ 20:
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -104,7 +104,34 @@
 
 /***/ },
 
-/***/ 11:
+/***/ 21:
+/***/ function(module, exports) {
+
+	module.exports = {
+	  ".turtorial-page": {
+	    "flexDirection": "column",
+	    "paddingTop": "20px",
+	    "paddingRight": "10px",
+	    "paddingBottom": "20px",
+	    "paddingLeft": "10px"
+	  },
+	  "a": {
+	    "textDecoration": "underline",
+	    "textAlign": "center"
+	  },
+	  "text": {
+	    "fontSize": "48px",
+	    "fontWeight": "bold"
+	  },
+	  ".tutorial-panel": {
+	    "flexDirection": "column",
+	    "flexGrow": 1
+	  }
+	}
+
+/***/ },
+
+/***/ 22:
 /***/ function(module, exports) {
 
 	module.exports = function(module, exports, $app_require$){'use strict';

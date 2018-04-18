@@ -43,13 +43,14 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $app_template$ = __webpack_require__(7)
-	var $app_style$ = __webpack_require__(8)
-	var $app_script$ = __webpack_require__(9)
+	var $app_template$ = __webpack_require__(16)
+	var $app_style$ = __webpack_require__(17)
+	var $app_script$ = __webpack_require__(18)
 	
 	$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){
 	     $app_script$($app_module$, $app_exports$, $app_require$)
@@ -64,75 +65,90 @@
 
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+
+/***/ 16:
 /***/ function(module, exports) {
 
 	module.exports = {
-	  "type": "div",
+	  "type": "list",
 	  "attr": {},
 	  "classList": [
-	    "demo-page"
+	    "tutorial-page"
 	  ],
 	  "children": [
 	    {
-	      "type": "text",
+	      "type": "list-item",
 	      "attr": {
-	        "value": function () {return '欢迎打开' + (this.title)}
+	        "type": "list-item"
 	      },
-	      "classList": [
-	        "title"
+	      "repeat": function () {return this.pageList},
+	      "children": [
+	        {
+	          "type": "div",
+	          "attr": {
+	            "show": function () {return this.$item.href}
+	          },
+	          "classList": [
+	            "item"
+	          ],
+	          "children": [
+	            {
+	              "type": "a",
+	              "attr": {
+	                "href": function () {return this.$item.href},
+	                "value": function () {return this.$item.name}
+	              },
+	              "classList": [
+	                "item-name"
+	              ]
+	            },
+	            {
+	              "type": "text",
+	              "attr": {
+	                "value": function () {return this.getPath(this.$item.href)}
+	              }
+	            }
+	          ]
+	        }
 	      ]
-	    },
-	    {
-	      "type": "input",
-	      "attr": {
-	        "type": "button",
-	        "value": "跳转到详情页"
-	      },
-	      "classList": [
-	        "btn"
-	      ],
-	      "events": {
-	        "click": "routeDetail"
-	      }
 	    }
 	  ]
 	}
 
 /***/ },
-/* 8 */
+
+/***/ 17:
 /***/ function(module, exports) {
 
 	module.exports = {
-	  ".demo-page": {
+	  ".tutorial-page": {
 	    "flexDirection": "column",
-	    "justifyContent": "center",
-	    "alignItems": "center"
+	    "paddingTop": "0px",
+	    "paddingRight": "30px",
+	    "paddingBottom": "30px",
+	    "paddingLeft": "30px"
 	  },
-	  ".title": {
-	    "fontSize": "40px",
-	    "textAlign": "center"
+	  ".item": {
+	    "justifyContent": "space-between",
+	    "width": "500px",
+	    "height": "120px",
+	    "paddingTop": "0px",
+	    "paddingRight": "30px",
+	    "paddingBottom": "0px",
+	    "paddingLeft": "30px",
+	    "marginTop": "30px",
+	    "backgroundColor": "#ffffff"
 	  },
-	  ".btn": {
-	    "width": "550px",
-	    "height": "86px",
-	    "marginTop": "75px",
-	    "borderRadius": "43px",
-	    "backgroundColor": "#09ba07",
-	    "fontSize": "30px",
-	    "color": "#ffffff"
+	  ".item-name": {
+	    "color": "#09ba07",
+	    "fontSize": "32px"
 	  }
 	}
 
 /***/ },
-/* 9 */
-/***/ function(module, exports) {
+
+/***/ 18:
+/***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(module, exports, $app_require$){'use strict';
 	
@@ -142,20 +158,17 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _system = $app_require$('@app-module/system.router');
-	
-	var _system2 = _interopRequireDefault(_system);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _data = __webpack_require__(19);
 	
 	exports.default = {
-	  data: {
-	    title: '示例页面'
+	  private: {
+	    pageList: _data.pageList
 	  },
-	  routeDetail: function routeDetail() {
-	    _system2.default.push({
-	      uri: '/ComponentTabs'
-	    });
+	  getPath: function getPath(str) {
+	    return str;
+	  },
+	  onInit: function onInit() {
+	    this.$page.setTitleBar({ text: '目录' });
 	  }
 	};
 	
@@ -183,8 +196,51 @@
 	  });
 	}}
 
+/***/ },
+
+/***/ 19:
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	/**
+	* 页面目录数据:首页
+	**/
+	var pageList = [{
+	   name: '生命周期',
+	   href: '/Lifecycle'
+	}, {
+	   name: '页面样式与布局',
+	   href: '/StyleLayout'
+	}, {
+	   name: '框架指令',
+	   href: '/Directive'
+	}, {
+	   name: '页面切换及参数传递',
+	   href: '/PageParams'
+	}, {
+	   name: '事件监听与触发',
+	   href: '/BindEvents'
+	}, {
+	   name: '父子组件通信',
+	   href: '/InterVms'
+	}, {
+	   name: '使用Async',
+	   href: '/Async'
+	}, {
+	   name: '优化技巧',
+	   href: '/Optimization'
+	}, {
+	   name: 'list教程',
+	   href: '/ComponentList'
+	}, {
+	   name: 'tabs教程',
+	   href: '/CommonentTabs'
+	}];
+
 /***/ }
-/******/ ]);
+
+/******/ });
   };
   if (typeof window === "undefined") {
     return createPageHandler();

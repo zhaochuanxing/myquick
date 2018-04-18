@@ -43,13 +43,14 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $app_template$ = __webpack_require__(7)
-	var $app_style$ = __webpack_require__(8)
-	var $app_script$ = __webpack_require__(9)
+	var $app_template$ = __webpack_require__(35)
+	var $app_style$ = __webpack_require__(36)
+	var $app_script$ = __webpack_require__(37)
 	
 	$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){
 	     $app_script$($app_module$, $app_exports$, $app_require$)
@@ -64,74 +65,62 @@
 
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+
+/***/ 35:
 /***/ function(module, exports) {
 
 	module.exports = {
 	  "type": "div",
 	  "attr": {},
-	  "classList": [
-	    "demo-page"
-	  ],
+	  "style": {
+	    "flexDirection": "column"
+	  },
 	  "children": [
 	    {
 	      "type": "text",
 	      "attr": {
-	        "value": function () {return '欢迎打开' + (this.title)}
+	        "value": "点击我修改文字颜色(css)"
 	      },
-	      "classList": [
-	        "title"
-	      ]
+	      "classList": function () {return ['normal-text', this.className]},
+	      "events": {
+	        "click": "changeClassName"
+	      }
 	    },
 	    {
-	      "type": "input",
+	      "type": "text",
 	      "attr": {
-	        "type": "button",
-	        "value": "跳转到详情页"
+	        "value": " 点击我修改文字颜色(inline) "
 	      },
-	      "classList": [
-	        "btn"
-	      ],
+	      "style": {
+	        "color": function () {return this.textColor}
+	      },
 	      "events": {
-	        "click": "routeDetail"
+	        "click": "changeInlineStyle"
 	      }
 	    }
 	  ]
 	}
 
 /***/ },
-/* 8 */
+
+/***/ 36:
 /***/ function(module, exports) {
 
 	module.exports = {
-	  ".demo-page": {
-	    "flexDirection": "column",
-	    "justifyContent": "center",
-	    "alignItems": "center"
+	  ".normal-text": {
+	    "fontWeight": "bold"
 	  },
-	  ".title": {
-	    "fontSize": "40px",
-	    "textAlign": "center"
+	  ".text-blue": {
+	    "color": "#0faeff"
 	  },
-	  ".btn": {
-	    "width": "550px",
-	    "height": "86px",
-	    "marginTop": "75px",
-	    "borderRadius": "43px",
-	    "backgroundColor": "#09ba07",
-	    "fontSize": "30px",
-	    "color": "#ffffff"
+	  ".text-red": {
+	    "color": "#f76160"
 	  }
 	}
 
 /***/ },
-/* 9 */
+
+/***/ 37:
 /***/ function(module, exports) {
 
 	module.exports = function(module, exports, $app_require$){'use strict';
@@ -142,20 +131,19 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _system = $app_require$('@app-module/system.router');
-	
-	var _system2 = _interopRequireDefault(_system);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
 	exports.default = {
-	  data: {
-	    title: '示例页面'
+	  private: {
+	    className: 'text-blue',
+	    textColor: '#0faeff'
 	  },
-	  routeDetail: function routeDetail() {
-	    _system2.default.push({
-	      uri: '/ComponentTabs'
-	    });
+	  onInit: function onInit() {
+	    this.$page.setTitleBar({ text: '动态修改样式' });
+	  },
+	  changeClassName: function changeClassName() {
+	    this.className = 'text-red';
+	  },
+	  changeInlineStyle: function changeInlineStyle() {
+	    this.textColor = "#f76160";
 	  }
 	};
 	
@@ -184,7 +172,8 @@
 	}}
 
 /***/ }
-/******/ ]);
+
+/******/ });
   };
   if (typeof window === "undefined") {
     return createPageHandler();

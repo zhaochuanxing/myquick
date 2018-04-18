@@ -1,0 +1,23 @@
+<template>
+ <div class="tutorial-page">
+  <tabs>
+   <tab-bar class="tab-bar">
+    <text>menu1</text>
+    <text>menu2</text>
+    <text>menu3</text>
+   </tab-bar>
+
+   <tab-content class="tab-content">
+    <div class="tab-content-section">
+     <text>content1</text>
+    </div>
+    <div class="tab-content-section">
+     <text>content2</text>
+    </div>
+    <div class="tab-content-section">
+     <text>content3</text>
+    </div>
+   </tab-content>
+  </tabs>
+ </div>
+</template>

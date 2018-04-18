@@ -1,0 +1,48 @@
+<template>
+<list class="tutorial-page">
+ <list-item type="list-item" for="{{pageList}}">
+  <div class="item" show="{{$item.href}}">
+    <a class="item-name" href="{{$item.href}}">{{$item.name}}</a>
+    <text>{{getPath($item.href)}}</text>
+  </div>
+ </list-item>
+</list>	
+</template>
+
+<style  lang="less">
+   .tutorial-page{
+   	flex-direction: column;
+   	padding: 0 30px 30px 30px;
+   }
+
+   .item{
+     justify-content:space-between;
+     width: 500px;
+     height:120px;
+     padding:0 30px;
+     margin-top: 30px;
+     background-color: #ffffff;
+   }
+
+  .item-name{
+    color:#09ba07;
+    font-size: 32px;
+  }
+</style>
+<script>
+  import {pageList} from '../Common/js/data'
+
+  export default{
+  	private:{
+  	  pageList:pageList
+  	},
+  	getPath(str){
+      return str
+               // return "src"+str.match(/[^?]+/g)[0]
+  	},
+
+    onInit(){
+      this.$page.setTitleBar({text:'目录'})
+    }
+  }
+</script>

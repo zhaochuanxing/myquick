@@ -47,9 +47,9 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $app_template$ = __webpack_require__(7)
-	var $app_style$ = __webpack_require__(8)
-	var $app_script$ = __webpack_require__(9)
+	var $app_template$ = __webpack_require__(4)
+	var $app_style$ = __webpack_require__(5)
+	var $app_script$ = __webpack_require__(6)
 	
 	$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){
 	     $app_script$($app_module$, $app_exports$, $app_require$)
@@ -67,71 +67,145 @@
 /* 1 */,
 /* 2 */,
 /* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+/* 4 */
 /***/ function(module, exports) {
 
 	module.exports = {
 	  "type": "div",
 	  "attr": {},
 	  "classList": [
-	    "demo-page"
+	    "tutorial-page"
 	  ],
 	  "children": [
 	    {
-	      "type": "text",
-	      "attr": {
-	        "value": function () {return '欢迎打开' + (this.title)}
-	      },
-	      "classList": [
-	        "title"
+	      "type": "div",
+	      "attr": {},
+	      "children": [
+	        {
+	          "type": "a",
+	          "attr": {
+	            "href": "CompontentTabs/base/div",
+	            "value": "div组件模拟选项卡"
+	          }
+	        },
+	        {
+	          "type": "a",
+	          "attr": {
+	            "href": "CompontentTabs/base/tabs",
+	            "value": "使用tabs组件"
+	          }
+	        },
+	        {
+	          "type": "a",
+	          "attr": {
+	            "href": "ComponentTabs/base/component",
+	            "value": "页面内容使用自定义子组件"
+	          }
+	        },
+	        {
+	          "type": "a",
+	          "attr": {
+	            "href": "ComponentTabs/renderControl",
+	            "value": "页面标签内容懒加载"
+	          }
+	        },
+	        {
+	          "type": "a",
+	          "attr": {
+	            "href": "ComponentTabs/complex",
+	            "value": "tabs仅包含tab-content"
+	          }
+	        }
 	      ]
-	    },
-	    {
-	      "type": "input",
-	      "attr": {
-	        "type": "button",
-	        "value": "跳转到详情页"
-	      },
-	      "classList": [
-	        "btn"
-	      ],
-	      "events": {
-	        "click": "routeDetail"
-	      }
 	    }
 	  ]
 	}
 
 /***/ },
-/* 8 */
+/* 5 */
 /***/ function(module, exports) {
 
 	module.exports = {
-	  ".demo-page": {
+	  ".tutorial-page": {
+	    "flexDirection": "row",
+	    "justifyContent": "flex-start",
+	    "alignItems": "flex-start"
+	  },
+	  ".tutorial-page div": {
 	    "flexDirection": "column",
-	    "justifyContent": "center",
-	    "alignItems": "center"
+	    "justifyContent": "flex-start",
+	    "alignItems": "flex-start",
+	    "_meta": {
+	      "ruleDef": [
+	        {
+	          "t": "a",
+	          "n": "class",
+	          "i": false,
+	          "a": "element",
+	          "v": "tutorial-page"
+	        },
+	        {
+	          "t": "d"
+	        },
+	        {
+	          "t": "t",
+	          "n": "div"
+	        }
+	      ]
+	    }
 	  },
-	  ".title": {
-	    "fontSize": "40px",
-	    "textAlign": "center"
-	  },
-	  ".btn": {
-	    "width": "550px",
-	    "height": "86px",
+	  ".tutorial-page a": {
 	    "marginTop": "75px",
-	    "borderRadius": "43px",
-	    "backgroundColor": "#09ba07",
+	    "marginLeft": "80px",
 	    "fontSize": "30px",
-	    "color": "#ffffff"
+	    "fontWeight": "bold",
+	    "color": "#09ba07",
+	    "textDecoration": "underline",
+	    "_meta": {
+	      "ruleDef": [
+	        {
+	          "t": "a",
+	          "n": "class",
+	          "i": false,
+	          "a": "element",
+	          "v": "tutorial-page"
+	        },
+	        {
+	          "t": "d"
+	        },
+	        {
+	          "t": "t",
+	          "n": "a"
+	        }
+	      ]
+	    }
+	  },
+	  ".tutorial-page text": {
+	    "marginTop": "75px",
+	    "marginLeft": "30px",
+	    "_meta": {
+	      "ruleDef": [
+	        {
+	          "t": "a",
+	          "n": "class",
+	          "i": false,
+	          "a": "element",
+	          "v": "tutorial-page"
+	        },
+	        {
+	          "t": "d"
+	        },
+	        {
+	          "t": "t",
+	          "n": "text"
+	        }
+	      ]
+	    }
 	  }
 	}
 
 /***/ },
-/* 9 */
+/* 6 */
 /***/ function(module, exports) {
 
 	module.exports = function(module, exports, $app_require$){'use strict';
@@ -142,20 +216,9 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _system = $app_require$('@app-module/system.router');
-	
-	var _system2 = _interopRequireDefault(_system);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
 	exports.default = {
-	  data: {
-	    title: '示例页面'
-	  },
-	  routeDetail: function routeDetail() {
-	    _system2.default.push({
-	      uri: '/ComponentTabs'
-	    });
+	  onInit: function onInit() {
+	    this.$page.setTitleBar({ text: 'list教程－tabs' });
 	  }
 	};
 	

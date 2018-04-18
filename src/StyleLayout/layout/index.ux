@@ -1,0 +1,37 @@
+<template>
+ <div class="tutorial-page">
+  <div class="item">
+   <text>item1</text>
+  </div>
+
+  <div class="item">
+  	<text>item2</text>
+  </div>
+ </div>
+</template>
+
+<style>
+ .tutorial-page{
+ 	/* 交叉轴居中*/
+ 	align-items:center;
+ 	/* 纵向排列*/
+ 	flex-direction: row; 	
+ }
+ .tutorial-page>.item{
+ 	/* 空间不够用时,不允许被压缩*/
+ 	flex-shrink: 1;
+ 	/*主轴居中 */
+ 	justify-content: center;
+ 	width: 500px;
+ 	height: 200px;
+ 	margin: 40px;
+ 	background-color: #FFFF00;
+ 	 }
+</style>
+<script>
+  export default{
+  	onInit(){
+  		this.$page.setTitleBar({text:'Flex布局实例'})
+  	}
+  }
+</script>

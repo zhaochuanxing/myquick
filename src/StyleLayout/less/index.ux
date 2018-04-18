@@ -1,0 +1,25 @@
+<template>
+ <div class="tutorial-page">
+  <text id="title">less实例</text>
+ </div>
+</template>
+<style >
+/*@import './style.less';
+*/
+.tutorial-page{
+	justify-content: center;
+	background-color: #00beaf;
+     }
+
+ #title{
+    	color:#ff0000;
+    }
+</style>
+
+<script>
+ export default{
+ 	onInit(){
+ 	  this.$page.setTitleBar({text:'引入LESS预编译'})
+ 	}
+ }
+</script>

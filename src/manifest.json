@@ -25,11 +25,38 @@
       "DemoDetail": {
         "component": "index"
       },
+      "Home":{
+        "component":"index"
+      },
+      "Directive":{
+        "component":"index"
+      },
+      "StyleLayout":{
+          "component":"index"
+      },
+      "StyleLayout/style":{
+         "component":"index"
+      },
+      "StyleLayout/less":{
+          "component":"index"
+      },
+      "StyleLayout/layout":{
+          "component":"index"
+      },
+      "StyleLayout/updatestyle":{
+          "component":"index"
+      },
       "Lifecycle":{
           "component":"index"
       },
       "About": {
         "component": "index"
+      },
+      "ComponentTabs":{
+         "component":"index"
+      },
+      "CompontentTabs/base/div":{
+        "component":"index"
       }
     }
   },
@@ -45,6 +72,7 @@
       "DemoDetail": {
         "titleBarText": "详情页"
       },
+
       "Lifecycle":{
         "menu":true
       },

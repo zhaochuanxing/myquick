@@ -1,0 +1,14 @@
+<template>
+ <div>
+  <text>{{header}}</text>
+  <slot></slot>
+  <text>{{footer}}</text>
+ </div>
+</template>
+<script>
+ export default{
+  propsl:[
+  'header','footer'
+  ]
+ }
+</script>
